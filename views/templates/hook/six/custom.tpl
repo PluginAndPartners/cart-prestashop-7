@@ -131,8 +131,8 @@
 
             <div class="row">
                 <!-- Select issuer -->
-                <div id="container-issuers" class="issuers-options col-md-4 col-4 mp-pt-20 mp-m-col">
-                    <label for="id-issuers-options" class="issuers-options mp-pb-5">{l s='issuing bank' mod='mercadopago'}</label>
+                <div id="container-issuers" class="issuers-options col-md-4 col-4 mp-m-col">
+                    <label for="id-issuers-options" class="issuers-options mp-pb-5 mp-pt-10">{l s='issuing bank' mod='mercadopago'}</label>
                     <select id="id-issuers-options"
                         class="issuers-options form-control mp-form-control mp-select mp-pointer noUniform"
                         data-checkout="issuer" name="mercadopago_custom[issuer]" type="text"></select>
@@ -140,7 +140,7 @@
                 </div>
 
                 <!-- Select installments -->
-                <div id="container-installments" class="col-md-12 col-8 col-md-4 mp-m-col pl-15">
+                <div id="container-installments" class="col-md-8 col-8 col-md-4 mp-m-col mp-pl-15">
                     <label for="id-installments" class="mp-pb-5 mp-pt-10">{l s='In how many installments do you want to pay?' mod='mercadopago'}</label>
                     <select class="form-control mp-form-control  mp-pointer not_uniform noUniform" id="id-installments"
                         data-no-uniform="true" data-checkout="installments" name="mercadopago_custom[installments]"
