@@ -166,14 +166,14 @@
 
             <div id="mp-doc-div" class="row">
                 <div id="mp-doc-type-div" class="col-md-4 col-4 mp-pb-20 mp-m-col">
-                    <label for="id-docType" class="mp-pb-5">{l s='Type' mod='mercadopago'}</label>
+                    <label for="id-docType" class="mp-pb-5 mp-pt-10">{l s='Type' mod='mercadopago'}</label>
                     <select id="id-docType" data-checkout="docType"
                         class="form-control mp-form-control  mp-pointer noUniform"></select>
                 </div>
 
                 <!-- Input Doc Number -->
                 <div id="mp-doc-number-div" class="col-md-8 col-8 mp-pb-20 mp-m-col">
-                    <label for="id-doc-number" class="mp-pb-5">{l s='Document number' mod='mercadopago'}</label>
+                    <label for="id-doc-number" class="mp-pb-5 mp-pt-10">{l s='Document number' mod='mercadopago'}</label>
                     <input id="id-doc-number" data-checkout="docNumber" type="text"
                         class="form-control mp-form-control" onkeyup="maskInput(this, minteger);"
                         autocomplete="off" />
