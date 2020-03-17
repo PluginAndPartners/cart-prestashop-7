@@ -32,10 +32,13 @@ require_once MP_ROOT_URL . '/includes/module/preference/AbstractPreference.php';
 
 class TicketPreference extends AbstractPreference
 {
+    public $methods;
+
     public function __construct()
     {
         parent::__construct();
         $this->checkout = 'custom';
+        $this->methods = $this->mercadopago->getPaymentMethods();
     }
 
     /**
@@ -71,9 +74,11 @@ class TicketPreference extends AbstractPreference
             $preference['payer']['identification']['number'] = $ticket_info['docNumber'];
         }
 
-        if ($ticket_info['paymentMethodId'] == 'webpay') {
+
+        $bankTransfers = $this->getBankTransferMethods();
+        if (in_array(strtoupper($ticket_info['paymentMethodId']), $bankTransfers )) {
             $preference['callback_url'] = $this->getSiteUrl();
-            $preference['transaction_details']['financial_institution'] = "1234";
+            $preference['transaction_details']['financial_institution'] = "1065";
             $preference['additional_info']['ip_address'] = "127.0.0.1";
             $preference['payer']['identification']['type'] = "RUT";
             $preference['payer']['identification']['number'] = "0";
@@ -182,5 +187,17 @@ class TicketPreference extends AbstractPreference
         $internal_metadata["checkout_type"] = "ticket";
 
         return $internal_metadata;
+    }
+
+    public function getBankTransferMethods()
+    {
+        $bankTransfers = array();
+
+        foreach ($this->methods as $method){
+            if($method['type'] == 'bank_transfer'){
+                array_push($bankTransfers, strtoupper($method['id']));
+            }
+        }
+        return $bankTransfers;
     }
 }
