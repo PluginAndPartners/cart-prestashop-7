@@ -89,7 +89,6 @@ class Mercadopago extends PaymentModule
         $this->ticketCheckout = new TicketCheckout($this);
     }
 
-
     /**
      * Load files
      *
